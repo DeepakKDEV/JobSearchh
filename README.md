@@ -22,7 +22,10 @@ This project is a job search portal that allows CRUD operations on a Job entity 
 
 ## Language Used
 * Java
-
+##database
+* H2database
+##APi hit
+* Swagger
 ---
 <br>
 
@@ -77,27 +80,27 @@ To validate the input we get from client, we've used validation annotations that
 ### Inbuilt @CrudRepo methods
 - We're extending CRUDRepository into repository interface.
 
-* PostMapping: "/jobs"
+* PostMapping: "jobs"
 ```
 This endpoint makes a call to method in jobService class where we implement method "saveAll()" in CRUD Repository.
 ```
 
-* GetMapping: "/jobs"
+* GetMapping: "jobs"
 ```
 This endpoint makes a call to method in jobService class which retrieves data of all jobs from database by implementing method "findAll()" present in CRUD repository. This data is sent to controller which is then sent through the API to client.
 ```
 
-* GetMapping: "/jobs/{jobId}"
+* GetMapping: "jobs/{jobId}"
 ```
 This endpoint returns data of specific job based on JobId through API
 ```
 
-* PutMapping : "/jobs/{jobId}"
+* PutMapping : "jobs/{jobId}"
 ```
 This endpoint makes a call to method in jobService class which is connected to database. In database we update a job by jobId given through API.
 ```
 
-* DeleteMapping : "/jobs/{jobId}"
+* DeleteMapping : "jobs/{jobId}"
 ```
 This endpoint makes a call to method in jobService class which is connected to database. In database we delete a user by jobId given through API.
 ```
@@ -108,23 +111,23 @@ This endpoint makes a call to method in jobService class which is connected to d
 ### Custom get methods using custom finders (based on method names)
 - Custom finder methods are defined in a library to get the data so we don't have to write sql queries to get the data.
 
-* GetMapping : "/jobs/jobType"
+* GetMapping : "jobs/jobType"
 ```
 The user is requesting data to be filtered by job type. We've used custom method findByJobType to get the data from database.
 ```
 
-* GetMapping : "/jobs/title/location"  
+* GetMapping : "jobs/title/location"  
 ```
 The user is requesting data to be filtered by title and location of the job. We've used custom method findByTitleAndLocation to get the data from database.
 ```
 
 
-* GetMapping : "/jobs/salary"  
+* GetMapping : "jobs/salary"  
 ```
 The user is requesting data to be filtered by salary of the job. We've used custom method findBySalaryGreaterThan to get the data from database.
 ```
 
-* GetMapping : "/jobs/description/location" 
+* GetMapping : "jobs/description/location" 
 ```
 The user is requesting data to be filtered by description or location of the job. We've used custom method findByDescriptionOrLocation to get the data from database.
 ```
@@ -133,7 +136,7 @@ The user is requesting data to be filtered by description or location of the job
 
 ### Operations using custom queries (using @Query)
 
-* DeleteMapping : "/job/{companyName}"
+* DeleteMapping : "job/{companyName}"
 ```
 We're using this mapping to delete jobs by company name. Here we've used custom SQL query to delete data from database
 ```
@@ -144,12 +147,12 @@ We're using this mapping to delete jobs by company name. Here we've used custom 
 We're using this mapping to get jobs by id and update salary for that particular job. Here we've used custom SQL query to update data in our database
 ```
 
-* GetMapping : "/type/{jobType}"
+* GetMapping : "type/{jobType}"
 ```
 The user is requesting data to be filtered by job type. We've used custom SQL query to get the data from database.
 ```
 
-* GetMapping : ""jobs/bySalary/{salary}""
+* GetMapping : "jobs/bySalary/{salary}"
 ```
 The user is requesting data to be filtered by salary. We've used custom SQL query to get the data from database.
 ```
