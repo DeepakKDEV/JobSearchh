@@ -22,10 +22,6 @@ This project is a job search portal that allows CRUD operations on a Job entity 
 
 ## Language Used
 * Java
-##database
-* H2database
-##APi hit
-* Swagger
 ---
 <br>
 
